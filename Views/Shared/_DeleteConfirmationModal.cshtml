@@ -1,0 +1,19 @@
+﻿<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Confirm Delete</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete: <span class="font-weight-bold" id="ContactName"></span>?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-secondary text-left" data-dismiss="modal"> Close </button>
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" id="ContactId" name="id" />
+                    <input type="submit" class="btn btn-danger" value="Delete">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>@ViewData["Title"] Contact Directory</title>
+
+    @* css *@
+    <link rel="stylesheet" href="~/lib/datatables/datatables.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container body-content shadow p-4">
+        @{
+            var pageName = ViewContext.RouteData.Values["action"].ToString();
+        }
+
+        <h1>
+            Contact Directory <small class="text-muted"> Technology Solutions of Michigan </small>
+
+            @* render add contact button if on home page *@
+            @if (pageName == "Index")
+            {
+                <a class="btn btn-success text-right margin-top-10" asp-action="Add" role="button">
+                    Create New Contact
+                </a>
+            }
+        </h1>
+        <hr />
+
+        @RenderBody()
+    </div>
+
+    @* render modal html for confirming deletions *@
+    <partial name="_DeleteConfirmationModal" />
+
+    @* js *@
+    <script src="~/lib/jquery/jquery-3.3.1.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    @* render our js last *@
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>
